@@ -1,0 +1,427 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+    <title>Data Visualization</title>
+
+		<meta name="description" content="Data Visualization">
+		<meta name="author" content="Chi-Hsuan, Huang">
+
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/black.css" id="theme">
+		<link rel="stylesheet" href="css/custom.css">
+
+		<!-- Code syntax highlighting -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.6/d3.min.js" charset="utf-8"></script>
+
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+
+	<body>
+
+		<div class="reveal">
+
+			<!-- Any section element inside of this container is displayed as a slide -->
+      <div class="slides">
+
+
+        <section>
+          <section class="main" data-background="./images/background-1.jpg">
+              <h1 class="big">Data Visualization</h1>
+              <p class="small">“Data visualization is both an art and a science”</p>
+              <p>
+              <small class="small" style="padding: 10px; border-radius: 20px; background:rgba(0,0,0, 0.59);">
+                Presenter：<a href="http://netdb.csie.ncku.edu.tw/">Chi-Hsuan@NetDB</a></small>
+              </p>
+              <aside class="notes">
+              </aside>
+          </section>
+           <section data-background-iframe="http://real.taiwanstat.com">
+          </section>
+        </section>
+
+        <section>
+				  <section class="main" data-background="./images/background-1.jpg">
+            <h1><span class="red big">What</span> is data visualization?</h1>
+          </section>
+
+          <section data-markdown>
+             “Transformation of the symbolic into the geometric” 
+
+              [McCormick et al. 1987]
+          </section>
+          
+          <section>
+          At its best, data visualization is expert <span class="red medium">storytelling.</span>
+          </section>
+
+          <section>
+
+            <video class="stretch" controls preload="metadata">
+              <source data-src="videos/video_1.mp4" type="video/mp4"/>
+              <track label="English" kind="subtitles" srclang="en" src="./videos/video_1.srt" default>
+            </video>
+            <a href="https://www.youtube.com/watch?v=YaGqOPxHFkc">Video Link</a>
+            </section>
+
+            <section data-background="http://img.scoop.it/CuTw6Uku4JhYf6OQDJ1BbYXXXL4j3HpexhjNOf_P3YmryPKwJ94QGRtDb3Sbc6KY">
+            </section>
+
+        </section><!--main-->
+
+
+        <section>
+				  <section class="main" data-background="./images/background-1.jpg" class="main">
+            <h1><span class="red big">Why</span> Data Visualization?</h1>
+          </section>
+
+          <section>
+          <img src="http://www.drawinghowtodraw.com/drawing-lessons/drawing-faces-lessons/Howtodraweyes_files/image004.gif"/><br/>
+
+            About 70% of all the sensory receptors in the body are in the eyes.
+
+          </section>
+
+          <section data-background="http://tedxtaipei.com/wp-content/uploads/2012/12/data2.png">
+          </section>
+
+          <section>
+          And raw data is usually <span class="red medium">not good</span> for human-readable. <br/>
+          （JSON、CSV、XML）
+          </section>
+
+          <section data-background="http://images.ioncross.com/mercurymarauder.net/06-24-2012-DataloggingAndAnalyzing/RAWDATA.GIF">
+          </section>
+
+          <section data-background-iframe="http://codepen.io/stefanjudis/full/gkHwJ">
+          </section>
+
+          <section data-markdown>
+            |Table | vs | Chart
+            |---|---|---|
+            |Specific||General|
+            |Measure、Calculate||Patterns、Relationships|
+            |More Machine-readable|| More Human-readable
+          </section>
+
+
+          <section>
+            <div class="medium">Besides, visualization is more...</div>
+          </section>
+  
+          <section>
+            <iframe src="http://neomam.com/interactive/13reasons/#bees"></iframe>
+          </section>
+        
+          </section><!--main-->
+
+        <section>
+       
+        <section class="main" data-background="./images/background-1.jpg" class="main">
+            <h1>The <span class="red big">Goal</span> of Data Visualization</h1>
+        </section>
+
+        <section>
+           <p>
+           A primary goal of data visualization is to <span class="red medium">communicate</span> information <span class="red medium">clearly and efficiently</span> to users.
+          </p>
+          </section>
+
+          <section>
+            <p>
+            Effective visualization also helps <br/>users in <span class="red medium">analyzing and reasoning</span> about data. 
+            </section>
+
+          <section>
+           </p>
+           <p>and makes <span class="medium">complex</span> data more <br/><span class="medium red">accessible, understandable and usable.</span>
+            </p>
+          </section>
+
+          <section>
+          <blockquote>
+            <p class="">
+            Turn data into <span class="red big">information</span>, 
+            and information into <span class="red big">insight.</span>
+            </p>
+            <cite><small>--Carly Fiorina, Former CEO of HP</small></cite></blockquote>
+          </section>
+
+          <section data-markdown>
+            # Creating Visualizations can help us
+
+              - Answer/discover questions
+              - Expand memory
+              - Make decisions
+              - Find patterns
+              - Inspire
+              - Tell a story
+          </section>
+
+
+
+        </section>
+
+        <section>
+          <video class="stretch" controls>
+            <source data-src="videos/video_why.mp4" type="video/mp4"/>
+          </video>
+          <div><a href="david mccandless the beauty of data visualization summary">David McCandless: The beauty of data visualization</a></div>
+        </section>
+     
+     
+        <!--right-->
+        <section>
+
+          <section class="main" data-background="./images/background-1.jpg">
+            <h1><span class="red big">How</span> to  Creating a Visualization?</h1>
+          </section>
+      
+          <section data-markdown>
+           # Your Purpose? 
+           （questions、hypotheses、audience）
+          </section>
+
+          <section data-markdown>
+            # Your data？
+  
+            （categorical, ordinal and interval）
+          </section>
+          
+          <section data-markdown>
+            # Domain Knowledge？
+        </section>
+
+          <section>
+            <img src="images/flow.png">
+          </section>
+
+          <section data-markdown>
+              # There are many tools
+
+              - Excel
+              - R
+              - Python
+              - ..., etc
+              
+          </section>
+
+          <section>
+            <div class="big">Why Web？</div>
+          </section>
+
+          <section data-background="images/github.png">
+          </section>
+
+          <section>
+          <p class="">After creating visualizations, <br/>should be notice that does it convey the data 
+          <span class="red big">honestly?</span></p>
+          </section>
+        </section><!--main-->
+
+        <section>
+				  <section class="main" data-background="./images/background-1.jpg" class="main">
+            <h1><span class="big">D3.js</h1>
+            Data-Driven Documents
+          </section>
+
+          <section>
+            D3.js is a JavaScript library for manipulating documents based on data.
+          </section>
+    
+          <section>
+            <h1>Quora：How do I learn D3.js?</h1>
+            <img src="images/d3.png"/>
+          </section>
+
+          <section data-markdown>
+            #D3 Basic
+
+            - SVG
+            - Binding Data
+            - Scales
+            - Axes
+            - Transitions
+            - Layouts
+            - Geomapping
+          </section>
+          
+          <section>
+            <h1>SVG - Three Little Circles</h1> 
+            <svg width="720" height="120">
+                <circle cx="40" cy="60" r="10" fill="#fff"></circle>
+                <circle cx="80" cy="60" r="10" fill="#fff"></circle>
+                <circle cx="120" cy="60" r="10" fill="#fff"></circle>
+             </svg>
+            <pre><code>
+              <svg width="720" height="120">
+                <circle cx="40" cy="60" r="10"></circle>
+                <circle cx="80" cy="60" r="10"></circle>
+                <circle cx="120" cy="60" r="10"></circle>
+              </svg>
+            </code></pre>
+
+          </section>
+         
+          <section>
+            <h1>Data Join</h1>
+            <img src="./images/d3_basic.png">
+          </section>
+
+          <section>
+          
+            <svg id="circles">
+            <pre><code>
+            var svg = d3.select('#circles');
+            var circle = svg.selectAll("circle")
+            .data([32, 57, 293], function(d) { return d; });
+
+            circle.enter().append("circle")
+                .attr("cy", 60)
+                .attr("cx", function(d, i) { return i * 100 + 30; })
+                .attr("r", function(d) { return Math.sqrt(d); })
+                .style("fill", "white");
+
+                circle.exit().remove(); 
+            </code></pre>
+          </section>
+
+          <script>
+             var svg = d3.select('#circles');
+             var circle = svg.selectAll("circle")
+      .data([32, 57, 293], function(d) { return d; });
+
+      circle.enter().append("circle")
+          .attr("cy", 60)
+          .attr("cx", function(d, i) { return i * 100 + 30; })
+          .attr("r", function(d) { return Math.sqrt(d); })
+          .style("fill", "white");
+
+          circle.exit().remove();
+          </script>
+
+        </section>
+
+
+
+      <section>
+      <section class="main" data-background="./images/background-1.jpg">
+              <h1 class="big">HTML5 Canvas</h1>
+      </section>
+
+      <section>
+           <canvas id="canvas" width="150" height="150"></canvas>
+            <pre><code>
+        function draw() {
+          var canvas = document.getElementById("canvas");
+          if (canvas.getContext) {
+            var ctx = canvas.getContext("2d");
+
+            ctx.fillStyle = "rgb(200,0,0)";
+            ctx.fillRect (10, 10, 55, 50);
+
+            ctx.fillStyle = "rgba(0, 0, 200, 0.5)";
+            ctx.fillRect (30, 30, 55, 50);
+          }
+        }
+            </pre></code>
+           </section>
+        <section>
+          <iframe src="http://graphics.wsj.com/3d-nasdaq/"></iframe>
+        </section>
+
+        <section>
+          <iframe src="https://events.lol.garena.tw/20150819_project#!core" scrolling="yes"></iframe>
+        </section>
+      </section>
+   
+        <section data-markdown>
+          # Reference
+
+          - D3
+            * [d3.org](http://d3js.org)
+            * [github wiki](https://github.com/mbostock/d3/wiki)
+            * [Interactive Data Visualization for the Web](http://chimera.labs.oreilly.com/books/1230000000345/index.html)
+          - HTML5 Canvas
+            * [Canvas 教學文件](https://developer.mozilla.org/zh-TW/docs/Web/Guide/HTML/Canvas_tutorial)
+          - [Leaflet](http://leafletjs.com)
+          - [Google map API](https://developers.google.com/maps/documentation/javascript/)
+          - [React-D3](http://www.reactd3.org)
+
+        </section>
+
+        <section data-markdown>
+          # Thank you : )  
+        
+          ## Q&A
+        </section>
+
+      <!-- end reveal -->
+			</div>
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.js"></script>
+
+		<script>
+
+			// Full list of configuration options available at:
+			// https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: false,
+				progress: true,
+				history: true,
+        center: true,
+
+				transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+				// Optional reveal.js plugins
+				dependencies: [
+					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/highlight/highlight.js', async: true, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: 'plugin/zoom-js/zoom.js', async: true },
+					{ src: 'plugin/notes/notes.js', async: true }
+				]
+			});
+
+
+    function draw() {
+      var canvas = document.getElementById("canvas");
+      if (canvas.getContext) {
+        var ctx = canvas.getContext("2d");
+
+        ctx.fillStyle = "rgb(200,0,0)";
+        ctx.fillRect (10, 10, 55, 50);
+
+        ctx.fillStyle = "rgba(0, 0, 200, 0.5)";
+        ctx.fillRect (30, 30, 55, 50);
+      }
+    }
+    draw();
+    </script>
+
+
+
+	</body>
+</html>
