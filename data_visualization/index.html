@@ -16,7 +16,7 @@
 
 		<link rel="stylesheet" href="css/reveal.css">
 		<link rel="stylesheet" href="css/theme/black.css" id="theme">
-		<link rel="stylesheet" href="css/custom.css">
+    <link rel="stylesheet" href="css/custom.css">
 
 		<!-- Code syntax highlighting -->
 		<link rel="stylesheet" href="lib/css/zenburn.css">
@@ -54,8 +54,6 @@
               </p>
               <aside class="notes">
               </aside>
-          </section>
-           <section data-background-iframe="http://real.taiwanstat.com">
           </section>
         </section>
 
@@ -236,6 +234,10 @@
           <p class="">After creating visualizations, <br/>should be notice that does it convey the data 
           <span class="red big">honestly?</span></p>
           </section>
+
+          <section data-background-iframe="http://real.taiwanstat.com">
+           </section>
+
         </section><!--main-->
 
         <section>
@@ -324,9 +326,15 @@
 
 
       <section>
-      <section class="main" data-background="./images/background-1.jpg">
-              <h1 class="big">HTML5 Canvas</h1>
-      </section>
+        <section class="main" data-background="./images/background-1.jpg">
+          <h1 class="big">HTML5 Canvas</h1>
+           Dynamic rendering of 2D shapes and bitmap images
+        </section>
+    
+        <section>
+        Added in HTML5, the HTML <span class="red medium">canvas</span> element can be used to draw graphics via scripting in JavaScript.
+        </section>
+
 
       <section>
            <canvas id="canvas" width="150" height="150"></canvas>
@@ -346,15 +354,41 @@
             </pre></code>
            </section>
         <section>
-          <iframe src="http://graphics.wsj.com/3d-nasdaq/"></iframe>
+          <iframe data-src="http://graphics.wsj.com/3d-nasdaq/"></iframe>
         </section>
 
         <section>
-          <iframe src="https://events.lol.garena.tw/20150819_project#!core" scrolling="yes"></iframe>
+          <iframe data-src="https://events.lol.garena.tw/20150819_project#!core" scrolling="yes"></iframe>
         </section>
+      </section><!--main-->
+
+      <section>
+        <section class="main" data-background="./images/background-1.jpg">
+        <h1 class="big">Leaflet</h1>
+        A JavaScript library for interactive maps
       </section>
-   
-        <section data-markdown>
+
+      <section>
+        An open-source JavaScript library
+        for mobile-friendly interactive maps
+      </section>
+
+      <section data-markdown>
+        - Map Layer
+        - Marker
+        - Vector Layers (Path、Polyline、Polygon、Rectangle、Circle)
+        - GeoJSON
+        - Controls
+        - Plugins
+      </section>
+
+      <section>
+      <iframe src="http://leafletjs.com/#map"></iframe>
+      </section>
+
+      </section>
+
+      <section data-markdown>
           # Reference
 
           - D3
@@ -419,8 +453,7 @@
       }
     }
     draw();
-    </script>
-
+  </script>
 
 
 	</body>
