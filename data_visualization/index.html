@@ -69,7 +69,7 @@
           </section>
           
           <section>
-          At its best, data visualization is expert <span class="red medium">storytelling.</span>
+          At its best, data visualization is expert <span class="red big">storytelling.</span>
           </section>
 
           <section>
@@ -81,7 +81,7 @@
             <a href="https://www.youtube.com/watch?v=YaGqOPxHFkc">Video Link</a>
             </section>
 
-            <section data-background="http://img.scoop.it/CuTw6Uku4JhYf6OQDJ1BbYXXXL4j3HpexhjNOf_P3YmryPKwJ94QGRtDb3Sbc6KY">
+            <section data-background="http://img.scoop.it/CuTw6Uku4JhYf6OQDJ1BbYXXXL4j3HpexhjNOf_P3YmryPKwJ94QGRtDb3Sbc6KY" data-background-size="contain">
             </section>
 
         </section><!--main-->
@@ -126,10 +126,17 @@
             <div class="medium">Besides, visualization is more...</div>
           </section>
   
-          <section>
-            <iframe src="http://neomam.com/interactive/13reasons/#bees"></iframe>
+          <section data-background="./images/more1.png">
           </section>
         
+          <section data-background="./images/more2.png">
+          </section>
+
+          <section data-background="./images/more3.png">
+          </section>
+
+          <section data-background="./images/more4.png">
+          </section>
           </section><!--main-->
 
         <section>
@@ -180,10 +187,12 @@
         </section>
 
         <section>
+          <section class="main" data-background="./images/background-1.jpg">
           <video class="stretch" controls>
             <source data-src="videos/video_why.mp4" type="video/mp4"/>
           </video>
           <div><a href="david mccandless the beauty of data visualization summary">David McCandless: The beauty of data visualization</a></div>
+          </section>
         </section>
      
      
@@ -262,6 +271,7 @@
             - Binding Data
             - Scales
             - Axes
+            - Time
             - Transitions
             - Layouts
             - Geomapping
@@ -283,9 +293,30 @@
             </code></pre>
 
           </section>
+
+          <section>
+          So, how can we <span class="red medium">bind data to elements</span> in the DOM?
+          <br/>
+          Data ←→ DOM
+
+          </section>
+
+          <section>
+          <h1>Selection</h1>
+          </section>
+
+          <section>
+            <pre><code>
+              var svg = d3.select( body ).append( svg );
+            </code></pre>
+          </section>
+
+          <section>
+            <h1>Binding</h1>
+          </section>
          
           <section>
-            <h1>Data Join</h1>
+            <h1>Concept of Data Join</h1>
             <img src="./images/d3_basic.png">
           </section>
 
@@ -319,9 +350,20 @@
           .style("fill", "white");
 
           circle.exit().remove();
-          </script>
+        </script>
 
+        
+        <section data-background="./images/gallery.png">
         </section>
+      
+        <section class="iframe" data-background="#fff">
+          <iframe data-src="http://bl.ocks.org/Caged/6476579" allowtransparency="true" style="background: #FFFFFF;"></iframe>
+        </section>
+    
+        <section class="iframe" data-background="#fff">
+          <iframe data-src="http://bl.ocks.org/mbostock/4063269" allowtransparency="true" style="background: #FFFFFF;"></iframe>
+        </section>
+    </section> <!--main-->
 
 
 
@@ -353,11 +395,11 @@
         }
             </pre></code>
            </section>
-        <section>
+        <section class="iframe">
           <iframe data-src="http://graphics.wsj.com/3d-nasdaq/"></iframe>
         </section>
 
-        <section>
+        <section class="iframe">
           <iframe data-src="https://events.lol.garena.tw/20150819_project#!core" scrolling="yes"></iframe>
         </section>
       </section><!--main-->
@@ -382,8 +424,8 @@
         - Plugins
       </section>
 
-      <section>
-      <iframe src="http://leafletjs.com/#map"></iframe>
+      <section class="iframe" data-background="#fff">
+      <iframe src="http://leafletjs.com/#map" allowtransparency="true" style="background: #FFFFFF;"></iframe>
       </section>
 
       </section>
@@ -413,7 +455,8 @@
 			</div>
 		</div>
 
-		<script src="lib/js/head.min.js"></script>
+    <script src="lib/js/head.min.js"></script>
+    <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
 		<script src="js/reveal.js"></script>
 
 		<script>
@@ -453,6 +496,16 @@
       }
     }
     draw();
+
+    Reveal.addEventListener( 'slidechanged', function( event ) {
+    /*  var index = Reveal.getIndices();
+      if (index.h === 1 && index.v === 4){
+        $('.slide-background').addClass('bg-small');
+      }
+      else { 
+        $('.slide-background').removeClass('bg-small');
+      }*/
+    });
   </script>
 
 
