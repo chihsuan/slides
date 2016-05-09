@@ -50,7 +50,7 @@
               <p class="small">“Data visualization is both an art and a science”</p>
               <p>
               <small class="small" style="padding: 10px; border-radius: 20px; background:rgba(0,0,0, 0.59);">
-                Presenter：<a href="http://netdb.csie.ncku.edu.tw/">Chi-Hsuan@NetDB</a></small>
+                Presenter：<a href="http://netdb.csie.ncku.edu.tw/">chihsuan@NetDB</a></small>
               </p>
               <aside class="notes">
               </aside>
@@ -193,20 +193,19 @@
           <video class="stretch" controls>
             <source data-src="videos/video_why.mp4" type="video/mp4"/>
           </video>
-          <div><a href="david mccandless the beauty of data visualization summary">David McCandless: The beauty of data visualization</a></div>
+          <div><a href="http://www.ted.com/talks/david_mccandless_the_beauty_of_data_visualization?language=en">David McCandless: The beauty of data visualization</a></div>
           </section>
         </section>
-     
-     
+
         <!--right-->
         <section>
 
           <section class="main" data-background="./images/background-1.jpg">
             <h1><span class="red big">How</span> to  Creating a Visualization?</h1>
           </section>
-      
+
           <section data-markdown>
-           # Your Purpose? 
+           # Your Purpose?
            （questions、hypotheses、audience）
           </section>
 
@@ -241,6 +240,9 @@
             <img src="images/flow.png">
           </section>
 
+          <section>
+            <img height="650px" src="images/charts.png"/>
+          </section>
 
 
           <section>
@@ -268,6 +270,30 @@
             <img src="images/d3.png"/>
           </section>
 
+          <section>
+            <h3>HTML</h3>
+            <pre><code>
+              &lt;html&gt;
+              &lt;head&gt;
+                <meta charset="utf-8">
+              &lt;/head&gt;
+              &lt;body&gt;
+                Hello, world!
+                <script src="d3.v3.js"></script>
+              &lt;/body&gt;
+              &lt;/html&gt;
+            </code></pre>
+          </section>
+
+          <section data-markdown>
+            A web server is required when loading external data (e.g., d3.csv).
+
+            ```python
+            > python -m SimpleHTTPServer 8888 &
+            ```
+          </section>
+
+
           <section data-markdown>
             #D3 Basic
 
@@ -280,22 +306,26 @@
             - Layouts
             - Geomapping
           </section>
-          
+    
           <section>
-            <h1>SVG - Three Little Circles</h1> 
-            <svg width="720" height="120">
-                <circle cx="40" cy="60" r="10" fill="#fff"></circle>
-                <circle cx="80" cy="60" r="10" fill="#fff"></circle>
-                <circle cx="120" cy="60" r="10" fill="#fff"></circle>
-             </svg>
-            <pre><code>
-              <svg width="720" height="120">
-                <circle cx="40" cy="60" r="10"></circle>
-                <circle cx="80" cy="60" r="10"></circle>
-                <circle cx="120" cy="60" r="10"></circle>
-              </svg>
-            </code></pre>
+            <img src="http://nbremer.github.io/openvis2016/slides/slides/slide_52/d3-viz-in-base-shapes-3.png"/>
+          </section>
 
+
+          <section>
+            <h1>SVG - Three Little Circles</h1>
+            <svg width="720" height="120">
+              <circle cx="40" cy="60" r="10" fill="#fff"></circle>
+              <circle cx="80" cy="60" r="10" fill="#fff"></circle>
+              <circle cx="120" cy="60" r="10" fill="#fff"></circle>
+            </svg>
+            <pre><code>
+            <svg width="720" height="120">
+              <circle cx="40" cy="60" r="10"></circle>
+              <circle cx="80" cy="60" r="10"></circle>
+              <circle cx="120" cy="60" r="10"></circle>
+            </svg>
+            </code></pre>
           </section>
 
           <section>
@@ -310,27 +340,45 @@
           </section>
 
           <section>
+            With one element selected, adds one element.
             <pre><code>
               var svg = d3.select("body").append("svg");
             </code></pre>
           </section>
 
           <section>
-            <h1>Binding</h1>
+            Set some attributes and styles
+            <pre><code>
+            d3.selectAll("circle")
+              .attr("cx", 20)
+              .attr("cy", 12)
+              .attr("r", 24)
+              .style("fill", "red");
+            </code></pre>
           </section>
-         
+
+          <section>
+            <h1>Binding Data</h1>
+          </section>
+
+          <section>
+            <h2 style="text-transform: initial;">Data are Arrays</h2>
+            <pre><code>
+            var data = [1, 1, 2, 3, 5, 8];
+            </code></pre>
+          </section>
+
           <section>
             <h1>Concept of Data Join</h1>
             <img src="./images/d3_basic.png">
           </section>
 
           <section>
-          
             <svg id="circles">
             <pre><code>
             var svg = d3.select('#circles');
             var circle = svg.selectAll("circle")
-            .data([32, 57, 293], function(d) { return d; });
+            .data([32, 57, 293]);
 
             circle.enter().append("circle")
                 .attr("cy", 60)
@@ -338,6 +386,26 @@
                 .attr("r", function(d) { return Math.sqrt(d); })
                 .style("fill", "white");
             </code></pre>
+          </section>
+
+          <section>
+            The data method computes the join, defining enter and exit.
+            <pre><code>
+            var circle = svg.selectAll("circle")
+              data([32, 57, 293], function(d) { return d; });
+            </code></pre>
+          </section>
+
+          <section>
+            Appending to the enter selection creates the missing elements.
+            <pre><code>
+            circle.enter().append("circle");
+            </code></pre>
+          </section>
+
+          <section>
+            <h1>Enter</h1>
+            <svg width="1280" height="720" class="join chart"><g transform="translate(500,280)"><path d="M0,-139A160,160 0 0 0 0,139A160,160 0 1 1 0,-139" style="fill: rgb(158, 154, 200); stroke: rgb(255, 255, 255); stroke-width: 2px;"></path><path d="M0,-139A160,160 0 0 0 0,139A160,160 0 0 0 0,-139" style="fill: rgb(227, 119, 194); fill-opacity: 0; stroke: rgb(255, 255, 255); stroke-width: 2px;"></path><path d="M0,-139A160,160 0 1 1 0,139A160,160 0 0 0 0,-139" style="fill: rgb(116, 196, 118); fill-opacity: 0; stroke: rgb(255, 255, 255); stroke-width: 2px;"></path><text x="-80" y="-170" text-anchor="middle" style="fill: rgb(255, 255, 255); font-size: 24px;">Data</text><text x="80" y="-170" text-anchor="middle" style="fill: rgb(255, 255, 255); font-size: 24px;">Elements</text></g></svg>
           </section>
 
           <script>
@@ -349,10 +417,61 @@
               .attr("cx", function(d, i) { return i * 100 + 30; })
               .attr("r", function(d) { return Math.sqrt(d); })
               .style("fill", "white");
-
           </script>
 
+        <section>
+          <h1>Key Function</h1>
+        </section>
+
+        <section>
+         Data
+         <pre><code>
+          var data = [
+            {name: "Alice", x: 10.0, y: 9.14},
+            {name:   "Bob", x:  8.0, y: 8.14},
+            {name: "Carol", x: 13.0, y: 8.74},
+            {name:  "Dave", x:  9.0, y: 8.77},
+            {name: "Edith", x: 11.0, y: 9.26}
+          ];
+          </code></pre>
+        </section>
+
+        <section>
+         <pre><code>
+         function key(d) { return d.name; }
+
+         var circle = svg.selectAll("circle")
+            .data(data, key)
+            .attr("cx", x)
+            .attr("cy", y)
+            .attr("r", 2.5);
+         </code></pre>
+        </section>
+
+        <section>
+          <h1>Loading Data</h1>
+        </section>
+
+        <section>
+          <ul>
+            <li>
+              csv -> d3.csv
+            </li>
+            <li>
+              json -> d3.json
+            </li>
+          </ul>
+          <pre><code>
+            d3.csv("stocks.csv", function(stocks) {
+              // your code
+            });
+          </code></pre>
+        </section>
+
         <section data-background="./images/gallery.png">
+        </section>
+        <section class="iframe">
+          <iframe data-src="https://github.com/mbostock/d3/wiki/Gallery" allowtransparency="true" style="background: #FFFFFF;"></iframe>
         </section>
 
         <section class="iframe" data-background="#fff">
@@ -364,12 +483,30 @@
           <img src="https://upload.wikimedia.org/wikipedia/commons/9/9d/Inverse_Functions_Domain_and_Range.png" width="70%"/>
         </section>
 
-        <section data-background="https://upload.wikimedia.org/wikipedia/commons/9/9b/Social_Network_Analysis_Visualization.png">
+        <section>
+         <h1>Scale</h1>
+         <pre><code>
+         var x = d3.scale.linear()
+          .domain([12, 24])
+          .range([0, 720]);
+         </code></pre>
         </section>
+
+        <section>
+          <h1>Axes</h1>
+          <pre><code>
+          var yAxis = d3.svg.axis()
+            .scale(y)
+            .orient("left");
+          </code></pre>
+        </section>
+
+        <section data-background="https://upload.wikimedia.org/wikipedia/commons/9/9b/Social_Network_Analysis_Visualization.png"></section>
 
         <section class="iframe" data-background="#fff">
           <iframe data-src="http://bl.ocks.org/mbostock/4063269" allowtransparency="true" style="background: #FFFFFF;"></iframe>
         </section>
+
     </section> <!--main-->
 
 
@@ -439,14 +576,48 @@
       <iframe src="http://leafletjs.com/examples.html" allowtransparency="true" style="background: #FFFFFF;"></iframe>
       </section>
 
+      <section>
+        Create a simple map with marker
+        <pre><code>
+ var map = L.map('map').setView([51.505, -0.09], 13);
+ L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
+    attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+ }).addTo(map);
+
+ L.marker([51.5, -0.09]).addTo(map)
+    .bindPopup('A pretty CSS3 popup.<br> Easily customizable.')
+    .openPopup();
+        </code></pre>
       </section>
 
-        <section data-markdown>
-          # Thank you : )  
-        
-          ## Q&A
-        </section>
 
+      </section>
+
+      <section>
+        <section class="main" data-background="./images/background-1.jpg">
+        <h1 class="big">Summary</h1>
+      </section>
+
+      <section>
+        <ul>
+          <li>Data visualization is a process of <span class="red">mapping information to visuals.</span></li>
+          <li>The power of data visualization as a way to influence and persuade their audience.</li>
+        </ul>
+      </section>
+
+      <section>
+      <ul>
+        <li><span class="red">D3</span>：A powerful tool for custom, web-based visualization.</li>
+        <li><span class="red">Canvus</span>：A javascript graph visualization toolkit with high performance.</li>
+        <li><span class="red">leafletjs</span>：An open-source JavaScript library for mobile-friendly interactive maps.</li></ul>
+      </section>
+
+      <section>
+        <img height="500px;" src="http://poster.keepcalmandposters.com/43109.png"/>
+        Have fun, learning by doing
+      </section>
+
+      </section>
       <section data-markdown>
           # Reference
 
@@ -454,6 +625,7 @@
             * [d3.org](http://d3js.org)
             * [github wiki](https://github.com/mbostock/d3/wiki)
             * [Interactive Data Visualization for the Web](http://chimera.labs.oreilly.com/books/1230000000345/index.html)
+            * [d3 workshop slides](https://bost.ocks.org/mike/d3/workshop/)
           - HTML5 Canvas
             * [Canvas 教學文件](https://developer.mozilla.org/zh-TW/docs/Web/Guide/HTML/Canvas_tutorial)
           - [Leaflet](http://leafletjs.com)
@@ -467,8 +639,15 @@
         - [Course: CSE512 Data Visualization](http://courses.cs.washington.edu/courses/cse512/14wi/)
         - [Website: Why your Brain Craves Infographics](http://neomam.com/interactive/13reasons)
         - [TED Talk: The best stats you've ever seen](http://www.ted.com/talks/hans_rosling_shows_the_best_stats_you_ve_ever_seen)
-
       </section>
+
+
+
+        <section data-markdown>
+          # Thank you : )  Welcome to join us
+        
+          ## Q&A
+        </section>
 
       <!-- end reveal -->
 			</div>
